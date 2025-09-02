@@ -1,7 +1,8 @@
-name: AEGIS Daily Scan
+name: AEGIS High-Frequency Scan
 on:
   schedule:
-    - cron: '35 13 * * *'
+    # This cron expression means "at the 0, 15, 30, and 45-minute mark of every hour"
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 jobs:
   run-scan-and-commit:
@@ -18,7 +19,7 @@ jobs:
       - run: python test_harness.py
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "AEGIS Data Update"
+          commit_message: "AEGIS Data Update (Automated)"
           file_pattern: "data/latest_scan_results.json"
           commit_user_name: "AEGIS Bot [GitHub Actions]"
           commit_user_email: "actions@github.com"
