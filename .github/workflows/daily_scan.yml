@@ -1,0 +1,24 @@
+name: AEGIS Daily Scan
+on:
+  schedule:
+    - cron: '35 13 * * *'
+  workflow_dispatch:
+jobs:
+  run-scan-and-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+      - run: python test_harness.py
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "AEGIS Data Update"
+          file_pattern: "data/latest_scan_results.json"
+          commit_user_name: "AEGIS Bot [GitHub Actions]"
+          commit_user_email: "actions@github.com"
