@@ -8,6 +8,7 @@
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 2rem; }
         .container { max-width: 1200px; margin: auto; }
         h1 { text-align: center; color: #4CAF50; }
+        h1 .beta { font-size: 0.5em; color: #FFC107; vertical-align: super; }
         table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9em; }
         th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #333; }
         th { background-color: #1f1f1f; cursor: pointer; }
@@ -18,19 +19,19 @@
         .profit { color: #FFC107; font-weight: bold; }
         .loader { text-align: center; padding: 2rem; font-size: 1.2rem; }
         .footer { text-align: center; margin-top: 2rem; color: #777; }
-        .premium-ad { background-color: #FFC107; color: #121212; text-align: center; padding: 1rem; margin-top: 2rem; font-weight: bold; border-radius: 5px; }
-        .premium-ad a { color: #121212; text-decoration: underline; }
+        .premium-ad { background-color: #FFC107; color: #121212; text-align: center; padding: 1rem; margin-top: 2rem; font-weight: bold; border-radius: 5px; animation: pulse 2s infinite; }
+        .premium-ad a { color: #121212; text-decoration: none; font-size: 1.2em; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); } }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>AEGIS Arbitrage Opportunities</h1>
+        <h1>AEGIS Engine <span class="beta">BETA</span></h1>
         <div id="table-container">
             <div class="loader">Loading latest scan data...</div>
         </div>
         <div class="premium-ad">
-            Unlock 100+ more opportunities and real-time alerts! 
-            <a href="#" onclick="alert('Monetization link goes here!')">Go Premium Now!</a>
+            <a href="https://notsoinc.gumroad.com/l/AEGIS" target="_blank">Unlock All 100+ Opportunities & Go Premium!</a>
         </div>
         <div class="footer">
             <p>Last updated: <span id="last-updated"></span></p>
@@ -52,15 +53,9 @@
                 .then(data => {
                     const opportunities = data.data;
                     document.getElementById('last-updated').textContent = new Date().toLocaleString();
-                    
-                    // Filter out impossible opportunities for display
                     const realisticOpportunities = opportunities.filter(op => op.profit_pct < 1000);
-                    
-                    // Show top 5 realistic opportunities for the free version
                     const freeOpportunities = realisticOpportunities.slice(0, 5);
-
-                    const tableContainer = document.getElementById('table-container');
-                    tableContainer.innerHTML = createTable(freeOpportunities);
+                    document.getElementById('table-container').innerHTML = createTable(freeOpportunities);
                 })
                 .catch(error => {
                     console.error('Error fetching or parsing data:', error);
