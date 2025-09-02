@@ -11,75 +11,117 @@
         h1 .beta { font-size: 0.5em; color: #FFC107; vertical-align: super; }
         table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9em; }
         th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #333; }
-        th { background-color: #1f1f1f; cursor: pointer; }
-        tr:nth-child(even) { background-color: #1a1a1a; }
-        tr:hover { background-color: #2a2a2a; }
+        th { background-color: #1f1f1f; }
+        tbody tr { cursor: pointer; }
+        tbody tr:nth-child(even) { background-color: #1a1a1a; }
+        tbody tr:hover { background-color: #2a2a2a; }
         .buy { color: #4CAF50; font-weight: bold; }
         .sell { color: #F44336; font-weight: bold; }
         .profit { color: #FFC107; font-weight: bold; }
-        .loader { text-align: center; padding: 2rem; font-size: 1.2rem; }
         .footer { text-align: center; margin-top: 2rem; color: #777; }
         .premium-ad { background-color: #FFC107; color: #121212; text-align: center; padding: 1rem; margin-top: 2rem; font-weight: bold; border-radius: 5px; animation: pulse 2s infinite; }
         .premium-ad a { color: #121212; text-decoration: none; font-size: 1.2em; }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); } }
+        /* Intel Panel Styles */
+        .intel-panel { display: none; background-color: #1f1f1f; margin-top: 1rem; padding: 1.5rem; border-radius: 8px; border: 1px solid #333; }
+        .intel-tabs { display: flex; border-bottom: 1px solid #333; }
+        .intel-tab { padding: 10px 15px; cursor: pointer; border-bottom: 3px solid transparent; }
+        .intel-tab.active { border-bottom: 3px solid #FFC107; color: #FFC107; }
+        .intel-content { display: none; padding-top: 1rem; }
+        .intel-content.active { display: block; }
+        .intel-content a { color: #4CAF50; }
+        .premium-feature { background: linear-gradient(45deg, #FFC107, #F44336); color: white; padding: 1rem; text-align: center; border-radius: 4px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>AEGIS Engine <span class="beta">BETA</span></h1>
-        <div id="table-container">
-            <div class="loader">Loading latest scan data...</div>
-        </div>
+        <div id="table-container"></div>
+        <div id="intel-panel-container"></div>
         <div class="premium-ad">
-            <a href="https://notsoinc.gumroad.com/l/AEGIS" target="_blank">Unlock All 100+ Opportunities & Go Premium!</a>
+            <a href="https://notsoinc.gumroad.com/l/AEGIS" target="_blank">Unlock All Opportunities & One-Click Trading!</a>
         </div>
         <div class="footer">
             <p>Last updated: <span id="last-updated"></span></p>
-            <p>Data is provided for informational purposes only. Not financial advice.</p>
+            <p>#StayAbove</p>
         </div>
     </div>
 
     <script>
+        let allOpportunities = [];
+
         document.addEventListener('DOMContentLoaded', function() {
             const owner = 'Go-on-now-git';
             const repo = 'print-f-Fetching-tickers-from-EXCHANGES_TO_SCAN-';
             const dataUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/data/latest_scan_results.json`;
 
-            fetch(dataUrl + '?t=' + new Date().getTime()) // Bust cache
-                .then(response => {
-                    if (!response.ok) { throw new Error(`Network response was not ok: ${response.statusText}`); }
-                    return response.json();
-                })
+            fetch(dataUrl + '?t=' + new Date().getTime())
+                .then(response => response.json())
                 .then(data => {
-                    const opportunities = data.data;
-                    document.getElementById('last-updated').textContent = new Date().toLocaleString();
-                    const realisticOpportunities = opportunities.filter(op => op.profit_pct < 1000);
-                    const freeOpportunities = realisticOpportunities.slice(0, 5);
+                    allOpportunities = data.data.filter(op => op.profit_pct < 1000);
+                    const freeOpportunities = allOpportunities.slice(0, 5);
                     document.getElementById('table-container').innerHTML = createTable(freeOpportunities);
-                })
-                .catch(error => {
-                    console.error('Error fetching or parsing data:', error);
-                    document.getElementById('table-container').innerHTML = `<p style="color: #F44336; text-align: center;">Could not load scan data. The first scan might still be running or failed. Please check the repository's 'Actions' tab and refresh in a minute.</p>`;
+                    document.getElementById('last-updated').textContent = new Date().toLocaleString();
                 });
         });
 
         function createTable(data) {
-            if (!data || data.length === 0) { return '<p style="text-align: center;">No significant arbitrage opportunities found in the latest scan.</p>'; }
             let table = '<table><thead><tr><th>Symbol</th><th>Buy On</th><th>Buy Price</th><th>Sell On</th><th>Sell Price</th><th class="profit">Profit %</th></tr></thead><tbody>';
-            data.forEach(op => {
-                table += `
-                    <tr>
-                        <td>${op.symbol}</td>
-                        <td class="buy">${op.buy_on}</td>
-                        <td>${op.buy_price.toFixed(6)}</td>
-                        <td class="sell">${op.sell_on}</td>
-                        <td>${op.sell_price.toFixed(6)}</td>
-                        <td class="profit">${op.profit_pct.toFixed(2)}%</td>
-                    </tr>
-                `;
+            data.forEach((op, index) => {
+                table += `<tr onclick="showIntel(${index})">
+                    <td>${op.symbol}</td><td class="buy">${op.buy_on}</td><td>${op.buy_price.toFixed(6)}</td>
+                    <td class="sell">${op.sell_on}</td><td>${op.sell_price.toFixed(6)}</td><td class="profit">${op.profit_pct.toFixed(2)}%</td>
+                </tr>`;
             });
-            table += '</tbody></table>';
-            return table;
+            return table + '</tbody></table>';
+        }
+
+        function showIntel(index) {
+            const op = allOpportunities[index];
+            const panelContainer = document.getElementById('intel-panel-container');
+            
+            const exchangeLinks = {
+                'binance': `https://www.binance.com/en/trade/${op.symbol.replace('/', '_')}`,
+                'kraken': `https://pro.kraken.com/app/trade/${op.symbol.replace('/', '-')}`,
+                'kucoin': `https://www.kucoin.com/trade/${op.symbol.replace('/', '-')}`,
+                'gateio': `https://www.gate.io/trade/${op.symbol.replace('/', '_')}`
+            };
+
+            panelContainer.innerHTML = `
+                <div class="intel-panel" id="intel-panel">
+                    <h3>Intel for ${op.symbol}</h3>
+                    <div class="intel-tabs">
+                        <div class="intel-tab active" onclick="switchTab(this, 'instructions')">Instructions</div>
+                        <div class="intel-tab" onclick="switchTab(this, 'sources')">Sources</div>
+                        <div class="intel-tab" onclick="switchTab(this, 'premium')">Premium Feature</div>
+                    </div>
+                    <div id="instructions" class="intel-content active">
+                        <p><strong>Step 1:</strong> Buy ${op.symbol} on <strong class="buy">${op.buy_on}</strong> at approximately ${op.buy_price.toFixed(6)}.</p>
+                        <p><strong>Step 2:</strong> Transfer the asset to your <strong class="sell">${op.sell_on}</strong> account.</p>
+                        <p><strong>Step 3:</strong> Sell ${op.symbol} on <strong class="sell">${op.sell_on}</strong> for approximately ${op.sell_price.toFixed(6)}.</p>
+                        <p><em>Note: Transfer times and fees can affect profitability. Act quickly.</em></p>
+                    </div>
+                    <div id="sources" class="intel-content">
+                        <p>Direct link to buy: <a href="${exchangeLinks[op.buy_on]}" target="_blank">${op.buy_on.toUpperCase()} Trade Page</a></p>
+                        <p>Direct link to sell: <a href="${exchangeLinks[op.sell_on]}" target="_blank">${op.sell_on.toUpperCase()} Trade Page</a></p>
+                    </div>
+                    <div id="premium" class="intel-content">
+                        <div class="premium-feature">
+                            <h3>One-Click Trading</h3>
+                            <p>Premium members will have a "Trade Now" button here, taking them directly to the exchange with all fields pre-populated for the fastest possible execution.</p>
+                            <a href="https://notsoinc.gumroad.com/l/AEGIS" target="_blank" style="color:white; text-decoration:underline;">Upgrade Now!</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('intel-panel').style.display = 'block';
+        }
+
+        function switchTab(tabElement, contentId) {
+            document.querySelectorAll('.intel-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.intel-content').forEach(c => c.classList.remove('active'));
+            tabElement.classList.add('active');
+            document.getElementById(contentId).classList.add('active');
         }
     </script>
 </body>
