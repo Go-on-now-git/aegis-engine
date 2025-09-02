@@ -1,1 +1,91 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>AEGIS Scan Results</title></head><body><h1>Coming Soon</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEGIS Arbitrage Opportunities</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 2rem; }
+        .container { max-width: 1200px; margin: auto; }
+        h1 { text-align: center; color: #4CAF50; }
+        table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9em; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #333; }
+        th { background-color: #1f1f1f; cursor: pointer; }
+        tr:nth-child(even) { background-color: #1a1a1a; }
+        tr:hover { background-color: #2a2a2a; }
+        .buy { color: #4CAF50; font-weight: bold; }
+        .sell { color: #F44336; font-weight: bold; }
+        .profit { color: #FFC107; font-weight: bold; }
+        .loader { text-align: center; padding: 2rem; font-size: 1.2rem; }
+        .footer { text-align: center; margin-top: 2rem; color: #777; }
+        .premium-ad { background-color: #FFC107; color: #121212; text-align: center; padding: 1rem; margin-top: 2rem; font-weight: bold; border-radius: 5px; }
+        .premium-ad a { color: #121212; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AEGIS Arbitrage Opportunities</h1>
+        <div id="table-container">
+            <div class="loader">Loading latest scan data...</div>
+        </div>
+        <div class="premium-ad">
+            Unlock 100+ more opportunities and real-time alerts! 
+            <a href="#" onclick="alert('Monetization link goes here!')">Go Premium Now!</a>
+        </div>
+        <div class="footer">
+            <p>Last updated: <span id="last-updated"></span></p>
+            <p>Data is provided for informational purposes only. Not financial advice.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const owner = 'Go-on-now-git';
+            const repo = 'print-f-Fetching-tickers-from-EXCHANGES_TO_SCAN-';
+            const dataUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/data/latest_scan_results.json`;
+
+            fetch(dataUrl + '?t=' + new Date().getTime()) // Bust cache
+                .then(response => {
+                    if (!response.ok) { throw new Error(`Network response was not ok: ${response.statusText}`); }
+                    return response.json();
+                })
+                .then(data => {
+                    const opportunities = data.data;
+                    document.getElementById('last-updated').textContent = new Date().toLocaleString();
+                    
+                    // Filter out impossible opportunities for display
+                    const realisticOpportunities = opportunities.filter(op => op.profit_pct < 1000);
+                    
+                    // Show top 5 realistic opportunities for the free version
+                    const freeOpportunities = realisticOpportunities.slice(0, 5);
+
+                    const tableContainer = document.getElementById('table-container');
+                    tableContainer.innerHTML = createTable(freeOpportunities);
+                })
+                .catch(error => {
+                    console.error('Error fetching or parsing data:', error);
+                    document.getElementById('table-container').innerHTML = `<p style="color: #F44336; text-align: center;">Could not load scan data. The first scan might still be running or failed. Please check the repository's 'Actions' tab and refresh in a minute.</p>`;
+                });
+        });
+
+        function createTable(data) {
+            if (!data || data.length === 0) { return '<p style="text-align: center;">No significant arbitrage opportunities found in the latest scan.</p>'; }
+            let table = '<table><thead><tr><th>Symbol</th><th>Buy On</th><th>Buy Price</th><th>Sell On</th><th>Sell Price</th><th class="profit">Profit %</th></tr></thead><tbody>';
+            data.forEach(op => {
+                table += `
+                    <tr>
+                        <td>${op.symbol}</td>
+                        <td class="buy">${op.buy_on}</td>
+                        <td>${op.buy_price.toFixed(6)}</td>
+                        <td class="sell">${op.sell_on}</td>
+                        <td>${op.sell_price.toFixed(6)}</td>
+                        <td class="profit">${op.profit_pct.toFixed(2)}%</td>
+                    </tr>
+                `;
+            });
+            table += '</tbody></table>';
+            return table;
+        }
+    </script>
+</body>
+</html>
