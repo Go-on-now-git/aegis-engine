@@ -7,100 +7,65 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans">
-
     <div class="container mx-auto p-4 md:p-8 max-w-7xl">
-
         <header class="text-center mb-8">
             <h1 class="text-4xl md:text-5xl font-bold text-green-400">AEGIS Engine</h1>
         </header>
-
         <main>
-            <!-- Live Log Stream -->
             <div id="log-stream-container" class="bg-black rounded-lg shadow-lg p-4 font-mono text-sm h-48 overflow-y-auto mb-6 border border-gray-700">
-                <!-- Log messages will be injected here -->
+                <p>Connecting to AEGIS Engine log stream...</p>
             </div>
-
-            <div id="table-container" class="hidden bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                <!-- Table will be injected here after log stream finishes -->
-            </div>
+            <div id="table-container" class="hidden bg-gray-800 rounded-lg shadow-lg overflow-hidden"></div>
         </main>
-
         <div class="mt-8 text-center">
             <a href="https://notsoinc.gumroad.com/l/AEGIS" target="_blank" class="inline-block bg-amber-400 text-gray-900 font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-amber-300">
                 Unlock Pro Features
             </a>
         </div>
-
-        <footer class="text-center mt-12 text-gray-500 text-sm">
-            <p>#StayAbove</p>
-        </footer>
+        <footer class="text-center mt-12 text-gray-500 text-sm">#StayAbove</footer>
     </div>
-
     <script>
+        const LOG_URL = `https://raw.githubusercontent.com/Go-on-now-git/print-f-Fetching-tickers-from-EXCHANGES_TO_SCAN-/main/data/run_log.txt`;
         const DATA_URL = `https://raw.githubusercontent.com/Go-on-now-git/print-f-Fetching-tickers-from-EXCHANGES_TO_SCAN-/main/data/latest_scan_results.json`;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            runLogStream();
-        });
-
-        function runLogStream() {
+        document.addEventListener('DOMContentLoaded', () => { fetchAndDisplayLog(); });
+        async function fetchAndDisplayLog() {
             const logContainer = document.getElementById('log-stream-container');
-            const tableContainer = document.getElementById('table-container');
-            logContainer.innerHTML = ''; // Clear previous logs
-            tableContainer.classList.add('hidden');
-
-            const logs = [
-                { msg: 'AEGIS Engine Initializing...', delay: 100 },
-                { msg: 'Connecting to decentralized data source...', delay: 500 },
-                { msg: 'Pinging Binance API...', delay: 200 },
-                { msg: '<span class="text-green-400">OK</span>. Fetching pairs...', delay: 400 },
-                { msg: 'Pinging KuCoin API...', delay: 200 },
-                { msg: '<span class="text-green-400">OK</span>. Fetching pairs...', delay: 400 },
-                { msg: 'Pinging Gate.io API...', delay: 200 },
-                { msg: '<span class="text-green-400">OK</span>. Fetching pairs...', delay: 400 },
-                { msg: 'Aggregating market data...', delay: 300 },
-                { msg: 'Analyzing potential arbitrage paths...', delay: 800 },
-                { msg: '<span class="text-amber-400">Scan Complete.</span> Rendering opportunities...', delay: 500 },
-            ];
-
-            let i = 0;
-            function printLog() {
-                if (i < logs.length) {
+            logContainer.innerHTML = '';
+            try {
+                const response = await fetch(LOG_URL + '?t=' + new Date().getTime());
+                if (!response.ok) {
+                    logContainer.innerHTML = '<p class="text-red-500">Log stream unavailable. Awaiting next scan cycle.</p>';
+                    return;
+                }
+                const text = await response.text();
+                const lines = text.split('\n');
+                for (let i = 0; i < lines.length; i++) {
+                    await new Promise(resolve => setTimeout(resolve, 50));
                     const p = document.createElement('p');
-                    p.innerHTML = `[${new Date().toLocaleTimeString()}] ${logs[i].msg}`;
+                    p.textContent = lines[i];
                     logContainer.appendChild(p);
                     logContainer.scrollTop = logContainer.scrollHeight;
-                    setTimeout(printLog, logs[i].delay);
-                    i++;
-                } else {
-                    fetchData();
                 }
+                fetchData();
+            } catch (error) {
+                console.error('Log fetch error:', error);
+                logContainer.innerHTML = '<p class="text-red-500">Error connecting to log stream.</p>';
             }
-            printLog();
         }
-
         function fetchData() {
-            fetch(DATA_URL + '?t=' + new Date().getTime())
-                .then(response => response.json())
-                .then(data => {
-                    const opportunities = data.data.filter(op => op.profit_pct < 1000);
-                    const freeOpportunities = opportunities.slice(0, 5);
-                    const tableContainer = document.getElementById('table-container');
-                    tableContainer.innerHTML = createTable(freeOpportunities);
-                    tableContainer.classList.remove('hidden');
-                }).catch(error => console.error("Failed to fetch data:", error));
+            const tableContainer = document.getElementById('table-container');
+            fetch(DATA_URL + '?t=' + new Date().getTime()).then(response => response.json()).then(data => {
+                const opportunities = data.data.filter(op => op.profit_pct < 1000);
+                const freeOpportunities = opportunities.slice(0, 5);
+                tableContainer.innerHTML = createTable(freeOpportunities);
+                tableContainer.classList.remove('hidden');
+            }).catch(error => console.error("Failed to fetch data:", error));
         }
-
         function createTable(data) {
             if (!data || data.length === 0) return '<p class="text-center p-8 text-gray-400">No significant opportunities found.</p>';
             let table = '<div class="overflow-x-auto"><table class="w-full text-left"><thead><tr class="border-b border-gray-700"><th class="p-4">Margin (%)</th><th class="p-4">Pair</th><th class="p-4">Low (Exchange)</th><th class="p-4">High (Exchange)</th></tr></thead><tbody>';
             data.forEach(op => {
-                table += `<tr class="border-b border-gray-700 hover:bg-gray-700">
-                    <td class="p-4 font-bold text-green-400">+${op.profit_pct.toFixed(2)}%</td>
-                    <td class="p-4 font-mono">${op.symbol}</td>
-                    <td class="p-4">${op.buy_price.toFixed(6)} (${op.buy_on})</td>
-                    <td class="p-4">${op.sell_price.toFixed(6)} (${op.sell_on})</td>
-                </tr>`;
+                table += `<tr class="border-b border-gray-700 hover:bg-gray-700"><td class="p-4 font-bold text-green-400">+${op.profit_pct.toFixed(2)}%</td><td class="p-4 font-mono">${op.symbol}</td><td class="p-4">${op.buy_price.toFixed(6)} (${op.buy_on})</td><td class="p-4">${op.sell_price.toFixed(6)} (${op.sell_on})</td></tr>`;
             });
             return table + '</tbody></table></div>';
         }

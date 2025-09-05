@@ -1,7 +1,6 @@
 name: AEGIS High-Frequency Scan
 on:
   schedule:
-    # This cron expression means "at the 0, 15, 30, and 45-minute mark of every hour"
     - cron: '*/15 * * * *'
   workflow_dispatch:
 jobs:
@@ -10,16 +9,21 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: 1. Checkout Repository
+        uses: actions/checkout@v4
+      - name: 2. Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
-      - run: pip install -r requirements.txt
-      - run: python test_harness.py
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - name: 3. Install Dependencies
+        run: pip install -r requirements.txt
+      - name: 4. Run Scan & Generate REAL Log
+        run: python test_harness.py | tee data/run_log.txt
+      - name: 5. Commit Data and Log Files
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "AEGIS Data Update (Automated)"
-          file_pattern: "data/latest_scan_results.json"
+          commit_message: "AEGIS Data & Log Update (Automated)"
+          file_pattern: "data/latest_scan_results.json data/run_log.txt"
           commit_user_name: "AEGIS Bot [GitHub Actions]"
           commit_user_email: "actions@github.com"
