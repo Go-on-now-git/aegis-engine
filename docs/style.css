@@ -1,11 +1,29 @@
 body {
-    background-color: #0a0a0a;
-    background-image: radial-gradient(circle at top right, rgba(34, 197, 94, 0.1), transparent 40%),
-                      radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent 40%);
+    background-color: #050505;
+    background-image: radial-gradient(circle at 1% 1%, rgba(34, 197, 94, 0.15) 0%, transparent 30%),
+                      radial-gradient(circle at 99% 99%, rgba(59, 130, 246, 0.15) 0%, transparent 30%);
+    font-family: 'Inter', sans-serif;
 }
+.font-mono { font-family: 'Roboto Mono', monospace; }
 .glass-card {
-    background: rgba(17, 24, 39, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
 }
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    background-color: #f59e0b; /* Amber */
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+.status-dot.online { background-color: #22c55e; /* Green */ }
+.status-dot.error { background-color: #ef4444; /* Red */ }
