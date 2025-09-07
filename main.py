@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from app.services.exchange_connector import get_all_tickers
 from app.core.arbitrage import find_opportunities
 app = FastAPI(title="AEGIS-MVP API", description="API for finding cryptocurrency arbitrage opportunities.", version="1.0.0")
-EXCHANGES_TO_SCAN = ['binance', 'kraken', 'kucoin', 'gateio']
+EXCHANGES_TO_SCAN = ['binance', 'kraken', 'kucoin', 'gateio', 'coinbase']
 @app.get("/api/v1/scan", tags=["Arbitrage"])
 async def run_arbitrage_scan():
     print("Starting arbitrage scan...")

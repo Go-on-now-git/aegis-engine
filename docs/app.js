@@ -102,7 +102,7 @@ class AegisApp {
                 <div>
                     <label for="exchange-filter" class="text-sm font-semibold text-gray-400 mr-2">Exchange</label>
                     <select id="exchange-filter" class="bg-gray-900/50 border border-gray-600 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="all">All</option><option value="binance">Binance</option><option value="kraken">Kraken</option><option value="kucoin">KuCoin</option><option value="gateio">Gate.io</option>
+                        <option value="all">All</option><option value="binance">Binance</option><option value="kraken">Kraken</option><option value="kucoin">KuCoin</option><option value="gateio">Gate.io</option><option value="coinbase">Coinbase</option>
                     </select>
                 </div>
                 <button id="apply-filters" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-5 rounded-lg">Filter</button>
