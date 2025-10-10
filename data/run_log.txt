@@ -4,11 +4,11 @@ Could not fetch tickers from binance: binance GET https://api.binance.com/api/v3
   "code": 0,
   "msg": "Service unavailable from a restricted location according to 'b. Eligibility' in https://www.binance.com/en/terms. Please contact customer service if you believe you received this message in error."
 }
-Successfully aggregated data for 4152 unique symbols.
+Successfully aggregated data for 4153 unique symbols.
 Finding opportunities with a profit threshold of 0.2%...
-Scan complete. Found 124 potential opportunities.
-INFO:     127.0.0.1:52596 - "GET /api/v1/scan HTTP/1.1" 200 OK
-AEGIS-MVP Test Harness initiated at 2025-10-10T16:51:41.165219
+Scan complete. Found 125 potential opportunities.
+INFO:     127.0.0.1:60026 - "GET /api/v1/scan HTTP/1.1" 200 OK
+AEGIS-MVP Test Harness initiated at 2025-10-10T17:10:45.004664
 Starting FastAPI server in the background...
 Server process started with PID: 2122. Waiting 15s...
 Sending request to API endpoint: http://127.0.0.1:8000/api/v1/scan
