@@ -1,19 +1,20 @@
 Starting arbitrage scan...
 Fetching tickers from: ['binance', 'kraken', 'kucoin', 'gateio', 'coinbase']
+Could not fetch tickers from kraken: kraken {"error": ["EService:Unavailable:The service is currently unavailable, please visit www.kraken.com for details"]}
 Could not fetch tickers from binance: binance GET https://api.binance.com/api/v3/exchangeInfo 451  {
   "code": 0,
   "msg": "Service unavailable from a restricted location according to 'b. Eligibility' in https://www.binance.com/en/terms. Please contact customer service if you believe you received this message in error."
 }
-Successfully aggregated data for 4148 unique symbols.
+Successfully aggregated data for 2921 unique symbols.
 Finding opportunities with a profit threshold of 0.2%...
-Scan complete. Found 115 potential opportunities.
-INFO:     127.0.0.1:45326 - "GET /api/v1/scan HTTP/1.1" 200 OK
-AEGIS-MVP Test Harness initiated at 2025-11-01T14:47:13.857058
+Scan complete. Found 124 potential opportunities.
+INFO:     127.0.0.1:47094 - "GET /api/v1/scan HTTP/1.1" 200 OK
+AEGIS-MVP Test Harness initiated at 2025-11-01T15:09:54.123835
 Starting FastAPI server in the background...
-Server process started with PID: 2175. Waiting 15s...
+Server process started with PID: 2109. Waiting 15s...
 Sending request to API endpoint: http://127.0.0.1:8000/api/v1/scan
 Saving scan results to data/latest_scan_results.json...
 Data saved successfully.
-Terminating server process (PID: 2175)...
+Terminating server process (PID: 2109)...
 Server terminated.
 Harness execution complete.
