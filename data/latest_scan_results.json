@@ -8,63 +8,71 @@
     "coinbase"
   ],
   "profit_threshold_pct": 0.2,
-  "opportunities_found": 86,
+  "opportunities_found": 79,
   "data": [
     {
       "symbol": "HOLD/USDT",
       "buy_on": "gateio",
       "buy_price": 6.205e-06,
       "sell_on": "kucoin",
-      "sell_price": 0.5504,
-      "profit_pct": 8870165.9146
+      "sell_price": 0.5514,
+      "profit_pct": 8886281.95
     },
     {
       "symbol": "BBT/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.000335,
+      "buy_price": 0.000346,
       "sell_on": "gateio",
-      "sell_price": 0.2081,
-      "profit_pct": 62019.403
+      "sell_price": 0.2086,
+      "profit_pct": 60189.0173
     },
     {
       "symbol": "U/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.002116,
+      "buy_price": 0.002117,
       "sell_on": "gateio",
       "sell_price": 0.9995,
-      "profit_pct": 47135.3497
-    },
-    {
-      "symbol": "NEIRO/USDT",
-      "buy_on": "gateio",
-      "buy_price": 9.713e-05,
-      "sell_on": "kucoin",
-      "sell_price": 0.00106,
-      "profit_pct": 991.3209
+      "profit_pct": 47113.0373
     },
     {
       "symbol": "QI/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.0002445,
+      "buy_price": 0.0002291,
       "sell_on": "kucoin",
       "sell_price": 0.002652,
-      "profit_pct": 984.6626
+      "profit_pct": 1057.5731
+    },
+    {
+      "symbol": "NEIRO/USDT",
+      "buy_on": "gateio",
+      "buy_price": 9.656e-05,
+      "sell_on": "kucoin",
+      "sell_price": 0.001015,
+      "profit_pct": 951.1599
     },
     {
       "symbol": "XYRO/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.0001044,
+      "buy_price": 0.0001043,
       "sell_on": "kucoin",
       "sell_price": 0.000609,
-      "profit_pct": 483.3333
+      "profit_pct": 483.8926
     },
     {
       "symbol": "VRA/USDT",
       "buy_on": "gateio",
-      "buy_price": 3.299e-05,
+      "buy_price": 3.235e-05,
       "sell_on": "kucoin",
-      "sell_price": 9.27e-05,
-      "profit_pct": 180.9942
+      "sell_price": 9.17e-05,
+      "profit_pct": 183.4621
+    },
+    {
+      "symbol": "SYNT/USDT",
+      "buy_on": "gateio",
+      "buy_price": 0.000185,
+      "sell_on": "kucoin",
+      "sell_price": 0.00046,
+      "profit_pct": 148.6486
     },
     {
       "symbol": "DIN/USDT",
@@ -75,20 +83,12 @@
       "profit_pct": 143.224
     },
     {
-      "symbol": "SYNT/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.000193,
-      "sell_on": "kucoin",
-      "sell_price": 0.00046,
-      "profit_pct": 138.342
-    },
-    {
       "symbol": "FST/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.0008756,
+      "buy_price": 0.0008601,
       "sell_on": "kucoin",
       "sell_price": 0.00132,
-      "profit_pct": 50.7538
+      "profit_pct": 53.4705
     },
     {
       "symbol": "GST/USDT",
@@ -99,12 +99,20 @@
       "profit_pct": 43.9067
     },
     {
+      "symbol": "NOTAI/USDT",
+      "buy_on": "gateio",
+      "buy_price": 1.168e-06,
+      "sell_on": "kucoin",
+      "sell_price": 1.68e-06,
+      "profit_pct": 43.8356
+    },
+    {
       "symbol": "ROOT/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.0002027,
+      "buy_price": 0.0002029,
       "sell_on": "gateio",
-      "sell_price": 0.0002749,
-      "profit_pct": 35.6191
+      "sell_price": 0.0002718,
+      "profit_pct": 33.9576
     },
     {
       "symbol": "DPR/USDT",
@@ -115,6 +123,14 @@
       "profit_pct": 22.5054
     },
     {
+      "symbol": "MISSION/USDT",
+      "buy_on": "gateio",
+      "buy_price": 2.546e-07,
+      "sell_on": "kucoin",
+      "sell_price": 3.11e-07,
+      "profit_pct": 22.1524
+    },
+    {
       "symbol": "LOGX/USDT",
       "buy_on": "gateio",
       "buy_price": 0.000307,
@@ -123,52 +139,44 @@
       "profit_pct": 20.8469
     },
     {
-      "symbol": "MISSION/USDT",
-      "buy_on": "gateio",
-      "buy_price": 2.594e-07,
-      "sell_on": "kucoin",
-      "sell_price": 3.11e-07,
-      "profit_pct": 19.8921
-    },
-    {
-      "symbol": "NOTAI/USDT",
-      "buy_on": "gateio",
-      "buy_price": 1.17e-06,
-      "sell_on": "kucoin",
-      "sell_price": 1.36e-06,
-      "profit_pct": 16.2393
-    },
-    {
       "symbol": "RWA/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.00282,
+      "buy_price": 0.002831,
       "sell_on": "kucoin",
       "sell_price": 0.002961,
-      "profit_pct": 5.0
-    },
-    {
-      "symbol": "PTB/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.001914,
-      "sell_on": "kucoin",
-      "sell_price": 0.001973,
-      "profit_pct": 3.0825
-    },
-    {
-      "symbol": "MAIGA/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.01282,
-      "sell_on": "gateio",
-      "sell_price": 0.01319,
-      "profit_pct": 2.8861
+      "profit_pct": 4.592
     },
     {
       "symbol": "RVV/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.002964,
+      "buy_price": 0.002958,
       "sell_on": "gateio",
-      "sell_price": 0.00303,
-      "profit_pct": 2.2267
+      "sell_price": 0.003088,
+      "profit_pct": 4.3949
+    },
+    {
+      "symbol": "MAIGA/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.01271,
+      "sell_on": "gateio",
+      "sell_price": 0.01317,
+      "profit_pct": 3.6192
+    },
+    {
+      "symbol": "PTB/USDT",
+      "buy_on": "gateio",
+      "buy_price": 0.001905,
+      "sell_on": "kucoin",
+      "sell_price": 0.001964,
+      "profit_pct": 3.0971
+    },
+    {
+      "symbol": "NIM/USDT",
+      "buy_on": "gateio",
+      "buy_price": 0.0006514,
+      "sell_on": "kucoin",
+      "sell_price": 0.0006705,
+      "profit_pct": 2.9321
     },
     {
       "symbol": "KIP/USDT",
@@ -179,60 +187,28 @@
       "profit_pct": 2.1511
     },
     {
-      "symbol": "BDX/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.07879,
-      "sell_on": "gateio",
-      "sell_price": 0.08036,
-      "profit_pct": 1.9926
-    },
-    {
-      "symbol": "BDX/BTC",
-      "buy_on": "kucoin",
-      "buy_price": 9.52e-07,
-      "sell_on": "gateio",
-      "sell_price": 9.6939e-07,
-      "profit_pct": 1.8267
-    },
-    {
-      "symbol": "FURY/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.002714,
-      "sell_on": "kucoin",
-      "sell_price": 0.00276,
-      "profit_pct": 1.6949
-    },
-    {
-      "symbol": "ANI/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.000879,
-      "sell_on": "gateio",
-      "sell_price": 0.0008938,
-      "profit_pct": 1.6837
-    },
-    {
-      "symbol": "MAJOR/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.09091,
-      "sell_on": "gateio",
-      "sell_price": 0.09232,
-      "profit_pct": 1.551
-    },
-    {
       "symbol": "GMRX/USDT",
       "buy_on": "kucoin",
       "buy_price": 1.301e-05,
       "sell_on": "gateio",
-      "sell_price": 1.32e-05,
-      "profit_pct": 1.4604
+      "sell_price": 1.321e-05,
+      "profit_pct": 1.5373
     },
     {
-      "symbol": "NIM/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.0006511,
-      "sell_on": "kucoin",
-      "sell_price": 0.0006605,
-      "profit_pct": 1.4437
+      "symbol": "MAJOR/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.09096,
+      "sell_on": "gateio",
+      "sell_price": 0.09232,
+      "profit_pct": 1.4952
+    },
+    {
+      "symbol": "BDX/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.07924,
+      "sell_on": "gateio",
+      "sell_price": 0.08036,
+      "profit_pct": 1.4134
     },
     {
       "symbol": "NODE/USDT",
@@ -243,68 +219,92 @@
       "profit_pct": 1.3025
     },
     {
-      "symbol": "LINGO/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.009376,
-      "sell_on": "kucoin",
-      "sell_price": 0.00948,
-      "profit_pct": 1.1092
-    },
-    {
-      "symbol": "MICHI/USDT",
+      "symbol": "BDX/BTC",
       "buy_on": "kucoin",
-      "buy_price": 0.002628,
+      "buy_price": 9.57e-07,
       "sell_on": "gateio",
-      "sell_price": 0.002656,
-      "profit_pct": 1.0654
-    },
-    {
-      "symbol": "VANRY/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.006954,
-      "sell_on": "kucoin",
-      "sell_price": 0.00702,
-      "profit_pct": 0.9491
+      "sell_price": 9.6939e-07,
+      "profit_pct": 1.2947
     },
     {
       "symbol": "WLTH/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.002319,
+      "buy_price": 0.002312,
       "sell_on": "gateio",
       "sell_price": 0.002341,
-      "profit_pct": 0.9487
+      "profit_pct": 1.2543
+    },
+    {
+      "symbol": "MICHI/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.002624,
+      "sell_on": "gateio",
+      "sell_price": 0.002656,
+      "profit_pct": 1.2195
+    },
+    {
+      "symbol": "NFP/USDT",
+      "buy_on": "gateio",
+      "buy_price": 0.02077,
+      "sell_on": "kucoin",
+      "sell_price": 0.02102,
+      "profit_pct": 1.2037
     },
     {
       "symbol": "ZTC/USDT",
       "buy_on": "gateio",
       "buy_price": 0.002005,
       "sell_on": "kucoin",
-      "sell_price": 0.002024,
-      "profit_pct": 0.9476
+      "sell_price": 0.002029,
+      "profit_pct": 1.197
     },
     {
-      "symbol": "DMAIL/USDT",
+      "symbol": "VANRY/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.00178,
+      "buy_price": 0.006939,
       "sell_on": "kucoin",
-      "sell_price": 0.001796,
-      "profit_pct": 0.8989
+      "sell_price": 0.00701,
+      "profit_pct": 1.0232
     },
     {
-      "symbol": "NFP/USDT",
+      "symbol": "VAIOT/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.00689,
+      "sell_on": "gateio",
+      "sell_price": 0.00696,
+      "profit_pct": 1.016
+    },
+    {
+      "symbol": "CSIX/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.02084,
+      "buy_price": 0.0007289,
       "sell_on": "kucoin",
-      "sell_price": 0.02102,
-      "profit_pct": 0.8637
+      "sell_price": 0.000736,
+      "profit_pct": 0.9741
+    },
+    {
+      "symbol": "BFC/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.02141,
+      "sell_on": "gateio",
+      "sell_price": 0.02161,
+      "profit_pct": 0.9341
+    },
+    {
+      "symbol": "REACT/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.0337,
+      "sell_on": "gateio",
+      "sell_price": 0.03397,
+      "profit_pct": 0.8012
     },
     {
       "symbol": "HOUSE/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.001042,
+      "buy_price": 0.001043,
       "sell_on": "gateio",
-      "sell_price": 0.00105,
-      "profit_pct": 0.7678
+      "sell_price": 0.001051,
+      "profit_pct": 0.767
     },
     {
       "symbol": "ISP/USDT",
@@ -323,20 +323,36 @@
       "profit_pct": 0.7498
     },
     {
-      "symbol": "ART/USDT",
+      "symbol": "PUBLIC/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.000496,
+      "buy_price": 0.01536,
       "sell_on": "gateio",
-      "sell_price": 0.0004992,
-      "profit_pct": 0.6452
+      "sell_price": 0.01547,
+      "profit_pct": 0.7161
     },
     {
-      "symbol": "PUNDIAI/USDT",
+      "symbol": "ULTIMA/USDT",
+      "buy_on": "gateio",
+      "buy_price": 4771.3,
+      "sell_on": "kucoin",
+      "sell_price": 4802.65,
+      "profit_pct": 0.6571
+    },
+    {
+      "symbol": "PURR/USDT",
       "buy_on": "kucoin",
-      "buy_price": 1.0354,
+      "buy_price": 0.0675,
       "sell_on": "gateio",
-      "sell_price": 1.0414,
-      "profit_pct": 0.5795
+      "sell_price": 0.06794,
+      "profit_pct": 0.6519
+    },
+    {
+      "symbol": "TRADE/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.04629,
+      "sell_on": "gateio",
+      "sell_price": 0.04656,
+      "profit_pct": 0.5833
     },
     {
       "symbol": "SLAY/USDT",
@@ -347,12 +363,20 @@
       "profit_pct": 0.5448
     },
     {
-      "symbol": "TRADE/USDT",
+      "symbol": "ART/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.04631,
+      "buy_price": 0.000496,
       "sell_on": "gateio",
-      "sell_price": 0.04656,
-      "profit_pct": 0.5398
+      "sell_price": 0.0004987,
+      "profit_pct": 0.5444
+    },
+    {
+      "symbol": "ELP/USDT",
+      "buy_on": "gateio",
+      "buy_price": 0.002314,
+      "sell_on": "kucoin",
+      "sell_price": 0.002326,
+      "profit_pct": 0.5186
     },
     {
       "symbol": "OVR/USDT",
@@ -363,60 +387,20 @@
       "profit_pct": 0.4931
     },
     {
-      "symbol": "XION/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.1464,
-      "sell_on": "kucoin",
-      "sell_price": 0.1471,
-      "profit_pct": 0.4781
-    },
-    {
-      "symbol": "LIKE/USDT",
+      "symbol": "YZY/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.002191,
+      "buy_price": 0.3294,
       "sell_on": "gateio",
-      "sell_price": 0.002201,
-      "profit_pct": 0.4564
+      "sell_price": 0.331,
+      "profit_pct": 0.4857
     },
     {
-      "symbol": "OORT/USDT",
+      "symbol": "BTG/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.01334,
+      "buy_price": 5.723,
       "sell_on": "gateio",
-      "sell_price": 0.0134,
-      "profit_pct": 0.4498
-    },
-    {
-      "symbol": "VAIOT/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.00693,
-      "sell_on": "gateio",
-      "sell_price": 0.00696,
-      "profit_pct": 0.4329
-    },
-    {
-      "symbol": "DFYN/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.0014,
-      "sell_on": "gateio",
-      "sell_price": 0.001406,
-      "profit_pct": 0.4286
-    },
-    {
-      "symbol": "BOSON/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.02343,
-      "sell_on": "gateio",
-      "sell_price": 0.02353,
-      "profit_pct": 0.4268
-    },
-    {
-      "symbol": "LAVA/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.06612,
-      "sell_on": "kucoin",
-      "sell_price": 0.0664,
-      "profit_pct": 0.4235
+      "sell_price": 5.748,
+      "profit_pct": 0.4368
     },
     {
       "symbol": "NUM/USDT",
@@ -427,12 +411,12 @@
       "profit_pct": 0.419
     },
     {
-      "symbol": "E4C/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.00153,
-      "sell_on": "kucoin",
-      "sell_price": 0.001536,
-      "profit_pct": 0.3922
+      "symbol": "ENSO/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 1.4991,
+      "sell_on": "gateio",
+      "sell_price": 1.5049,
+      "profit_pct": 0.3869
     },
     {
       "symbol": "EWT/USDT",
@@ -443,36 +427,36 @@
       "profit_pct": 0.3865
     },
     {
-      "symbol": "BFC/USDT",
+      "symbol": "CAMP/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.02153,
+      "buy_price": 0.005336,
       "sell_on": "gateio",
-      "sell_price": 0.02161,
-      "profit_pct": 0.3716
+      "sell_price": 0.005356,
+      "profit_pct": 0.3748
     },
     {
       "symbol": "HEART/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.00136,
+      "buy_price": 0.001358,
       "sell_on": "kucoin",
-      "sell_price": 0.001365,
-      "profit_pct": 0.3676
+      "sell_price": 0.001363,
+      "profit_pct": 0.3682
     },
     {
-      "symbol": "BTG/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 5.723,
-      "sell_on": "gateio",
-      "sell_price": 5.744,
-      "profit_pct": 0.3669
-    },
-    {
-      "symbol": "DAO/USDT",
+      "symbol": "CHILLGUY/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.0436,
+      "buy_price": 0.01364,
       "sell_on": "kucoin",
-      "sell_price": 0.04375,
-      "profit_pct": 0.344
+      "sell_price": 0.01369,
+      "profit_pct": 0.3666
+    },
+    {
+      "symbol": "USTC/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.0059,
+      "sell_on": "gateio",
+      "sell_price": 0.00592,
+      "profit_pct": 0.339
     },
     {
       "symbol": "ZEX/USDT",
@@ -491,52 +475,44 @@
       "profit_pct": 0.319
     },
     {
-      "symbol": "BERA/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.5412,
-      "sell_on": "kucoin",
-      "sell_price": 0.5429,
-      "profit_pct": 0.3141
-    },
-    {
       "symbol": "WILD/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.04579,
+      "buy_price": 0.04566,
       "sell_on": "gateio",
-      "sell_price": 0.04593,
-      "profit_pct": 0.3057
+      "sell_price": 0.0458,
+      "profit_pct": 0.3066
     },
     {
-      "symbol": "ELP/USDT",
+      "symbol": "AURORA/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.002314,
+      "buy_price": 0.03918,
       "sell_on": "kucoin",
-      "sell_price": 0.002321,
-      "profit_pct": 0.3025
+      "sell_price": 0.0393,
+      "profit_pct": 0.3063
     },
     {
-      "symbol": "CHILLGUY/USDT",
+      "symbol": "MAPO/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.01372,
+      "buy_price": 0.003973,
       "sell_on": "kucoin",
-      "sell_price": 0.01376,
-      "profit_pct": 0.2915
+      "sell_price": 0.003985,
+      "profit_pct": 0.302
     },
     {
-      "symbol": "USTC/USDT",
+      "symbol": "MTV/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.00593,
+      "buy_price": 0.0002245,
       "sell_on": "gateio",
-      "sell_price": 0.005947,
-      "profit_pct": 0.2867
+      "sell_price": 0.00022515,
+      "profit_pct": 0.2895
     },
     {
-      "symbol": "UXLINK/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.01015,
-      "sell_on": "gateio",
-      "sell_price": 0.010179,
-      "profit_pct": 0.2857
+      "symbol": "XION/USDT",
+      "buy_on": "gateio",
+      "buy_price": 0.14578,
+      "sell_on": "kucoin",
+      "sell_price": 0.1462,
+      "profit_pct": 0.2881
     },
     {
       "symbol": "CREDI/USDT",
@@ -547,36 +523,44 @@
       "profit_pct": 0.2853
     },
     {
-      "symbol": "PZP/USDT",
+      "symbol": "DFYN/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.00468,
+      "buy_price": 0.001402,
       "sell_on": "gateio",
-      "sell_price": 0.004692,
-      "profit_pct": 0.2564
+      "sell_price": 0.001406,
+      "profit_pct": 0.2853
     },
     {
-      "symbol": "AURORA/USDT",
+      "symbol": "MOODENG/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.0392,
+      "buy_price": 0.05841,
       "sell_on": "kucoin",
-      "sell_price": 0.0393,
-      "profit_pct": 0.2551
+      "sell_price": 0.05857,
+      "profit_pct": 0.2739
     },
     {
-      "symbol": "MTV/USDT",
+      "symbol": "LAVA/USDT",
+      "buy_on": "gateio",
+      "buy_price": 0.06653,
+      "sell_on": "kucoin",
+      "sell_price": 0.0667,
+      "profit_pct": 0.2555
+    },
+    {
+      "symbol": "CESS/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.0002246,
+      "buy_price": 0.00199,
       "sell_on": "gateio",
-      "sell_price": 0.00022515,
-      "profit_pct": 0.2449
+      "sell_price": 0.001995,
+      "profit_pct": 0.2513
     },
     {
-      "symbol": "LAT/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.002058,
-      "sell_on": "kucoin",
-      "sell_price": 0.002063,
-      "profit_pct": 0.243
+      "symbol": "MANEKI/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.000416,
+      "sell_on": "gateio",
+      "sell_price": 0.000417,
+      "profit_pct": 0.2404
     },
     {
       "symbol": "CERE/USDT",
@@ -587,36 +571,52 @@
       "profit_pct": 0.2402
     },
     {
-      "symbol": "MOODENG/USDT",
+      "symbol": "XAN/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.0586,
+      "buy_price": 0.009788,
       "sell_on": "kucoin",
-      "sell_price": 0.05874,
-      "profit_pct": 0.2389
+      "sell_price": 0.009811,
+      "profit_pct": 0.235
     },
     {
-      "symbol": "ENSO/USDT",
+      "symbol": "CC/USDT",
       "buy_on": "kucoin",
-      "buy_price": 1.5069,
-      "sell_on": "gateio",
-      "sell_price": 1.5104,
-      "profit_pct": 0.2323
+      "buy_price": 0.18851,
+      "sell_on": "kraken",
+      "sell_price": 0.18895,
+      "profit_pct": 0.2334
     },
     {
-      "symbol": "PRO/USDT",
+      "symbol": "ESE/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.3526,
+      "buy_price": 0.000859,
       "sell_on": "kucoin",
-      "sell_price": 0.3534,
-      "profit_pct": 0.2269
+      "sell_price": 0.000861,
+      "profit_pct": 0.2328
     },
     {
       "symbol": "ASI/USDT",
       "buy_on": "gateio",
-      "buy_price": 0.001332,
+      "buy_price": 0.001333,
       "sell_on": "kucoin",
-      "sell_price": 0.001335,
-      "profit_pct": 0.2252
+      "sell_price": 0.001336,
+      "profit_pct": 0.2251
+    },
+    {
+      "symbol": "NPC/USDT",
+      "buy_on": "kucoin",
+      "buy_price": 0.00626,
+      "sell_on": "gateio",
+      "sell_price": 0.006274,
+      "profit_pct": 0.2236
+    },
+    {
+      "symbol": "WEMIX/USDT",
+      "buy_on": "gateio",
+      "buy_price": 0.3592,
+      "sell_on": "kucoin",
+      "sell_price": 0.36,
+      "profit_pct": 0.2227
     },
     {
       "symbol": "TLOS/USDT",
@@ -627,20 +627,12 @@
       "profit_pct": 0.2195
     },
     {
-      "symbol": "YZY/USDT",
+      "symbol": "KNC/USDT",
       "buy_on": "kucoin",
-      "buy_price": 0.3307,
+      "buy_price": 0.1881,
       "sell_on": "gateio",
-      "sell_price": 0.3314,
-      "profit_pct": 0.2117
-    },
-    {
-      "symbol": "ELON/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 3.78e-08,
-      "sell_on": "gateio",
-      "sell_price": 3.788e-08,
-      "profit_pct": 0.2116
+      "sell_price": 0.1885,
+      "profit_pct": 0.2127
     },
     {
       "symbol": "ITHACA/USDT",
@@ -649,54 +641,6 @@
       "sell_on": "kucoin",
       "sell_price": 0.0035535,
       "profit_pct": 0.2115
-    },
-    {
-      "symbol": "GIGGLE/USDT",
-      "buy_on": "gateio",
-      "buy_price": 42.75,
-      "sell_on": "kucoin",
-      "sell_price": 42.84,
-      "profit_pct": 0.2105
-    },
-    {
-      "symbol": "REACT/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.0339,
-      "sell_on": "gateio",
-      "sell_price": 0.03397,
-      "profit_pct": 0.2065
-    },
-    {
-      "symbol": "XAN/USDT",
-      "buy_on": "gateio",
-      "buy_price": 0.009786,
-      "sell_on": "kucoin",
-      "sell_price": 0.009806,
-      "profit_pct": 0.2044
-    },
-    {
-      "symbol": "NRN/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.007377,
-      "sell_on": "gateio",
-      "sell_price": 0.007392,
-      "profit_pct": 0.2033
-    },
-    {
-      "symbol": "GPS/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.00695,
-      "sell_on": "gateio",
-      "sell_price": 0.006964,
-      "profit_pct": 0.2014
-    },
-    {
-      "symbol": "CESS/USDT",
-      "buy_on": "kucoin",
-      "buy_price": 0.001991,
-      "sell_on": "gateio",
-      "sell_price": 0.001995,
-      "profit_pct": 0.2009
     }
   ]
 }
