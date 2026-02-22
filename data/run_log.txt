@@ -6,9 +6,9 @@ Could not fetch tickers from binance: binance GET https://api.binance.com/api/v3
 }
 Successfully aggregated data for 4054 unique symbols.
 Finding opportunities with a profit threshold of 0.2%...
-Scan complete. Found 79 potential opportunities.
-INFO:     127.0.0.1:47736 - "GET /api/v1/scan HTTP/1.1" 200 OK
-AEGIS-MVP Test Harness initiated at 2026-02-22T19:55:34.751368
+Scan complete. Found 73 potential opportunities.
+INFO:     127.0.0.1:33274 - "GET /api/v1/scan HTTP/1.1" 200 OK
+AEGIS-MVP Test Harness initiated at 2026-02-22T20:16:22.773822
 Starting FastAPI server in the background...
 Server process started with PID: 2311. Waiting 15s...
 Sending request to API endpoint: http://127.0.0.1:8000/api/v1/scan
