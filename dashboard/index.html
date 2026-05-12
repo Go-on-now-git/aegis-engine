@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AEGIS 2026 — Live Dashboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#080A0F;--card:#0E1018;--border:rgba(0,120,255,0.15);--blue:#0078FF;--blue2:#4DA6FF;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--white:#F0F2F8;--muted:#6B7280}
+body{background:var(--bg);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;padding:20px;min-height:100vh}
+h1{font-size:1.4rem;font-weight:900;background:linear-gradient(135deg,#0055CC,#0078FF,#00AAFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+.sub{font-size:0.7rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px}
+.mode-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.mode-paper{background:rgba(245,158,11,0.15);color:var(--yellow);border:1px solid rgba(245,158,11,0.3)}
+.mode-live{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3)}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:24px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.stat-label{font-size:0.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+.stat-val{font-size:1.6rem;font-weight:800;line-height:1}
+.stat-val.g{color:var(--green)}.stat-val.r{color:var(--red)}.stat-val.b{color:var(--blue2)}.stat-val.y{color:var(--yellow)}
+.section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:16px}
+.section-title{font-size:0.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px;font-weight:700}
+.trade-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(0,120,255,0.06);font-size:0.75rem}
+.trade-row:last-child{border:none}
+.badge{font-size:0.55rem;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.badge.tri{background:rgba(0,120,255,0.15);color:var(--blue2)}
+.badge.grid{background:rgba(34,197,94,0.12);color:var(--green)}
+.trade-path{flex:1;color:#9299B0}
+.trade-profit{color:var(--green);font-weight:700;margin-left:auto}
+.pnl-chart{height:80px;position:relative;overflow:hidden}
+.spin{display:inline-block;width:10px;height:10px;border:2px solid rgba(0,120,255,0.2);border-top-color:var(--blue);border-radius:50%;animation:sp .6s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<h1>⚡ AEGIS 2026</h1>
+<div class="sub">Autonomous Trading Engine — Kraken <span id="modeBadge" class="mode-badge mode-paper">PAPER</span></div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-label">Capital</div><div class="stat-val b" id="capital">$—</div></div>
+  <div class="stat"><div class="stat-label">Total PnL</div><div class="stat-val" id="pnl">$—</div></div>
+  <div class="stat"><div class="stat-label">Trades</div><div class="stat-val g" id="trades">—</div></div>
+  <div class="stat"><div class="stat-label">Fees → NSAI</div><div class="stat-val y" id="fees">$—</div></div>
+  <div class="stat"><div class="stat-label">Peak</div><div class="stat-val" style="font-size:1.1rem;color:#9299B0" id="peak">$—</div></div>
+  <div class="stat"><div class="stat-label">Return</div><div class="stat-val" id="returnPct">—</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Recent Trades</div>
+  <div id="tradeLog"><div style="color:var(--muted);font-size:0.8rem"><span class="spin"></span>Waiting for trades...</div></div>
+</div>
+
+<script>
+async function refresh() {
+  try {
+    const d = await fetch('/api/state').then(r => r.json());
+    const pnl = d.pnl || 0;
+    const cap = d.capital || 25;
+    const start = d.starting_capital || 25;
+
+    document.getElementById('capital').textContent = '$' + cap.toFixed(4);
+    const pnlEl = document.getElementById('pnl');
+    pnlEl.textContent = (pnl >= 0 ? '+' : '') + '$' + pnl.toFixed(4);
+    pnlEl.className = 'stat-val ' + (pnl >= 0 ? 'g' : 'r');
+    document.getElementById('trades').textContent = d.trades || 0;
+    document.getElementById('fees').textContent = '$' + (d.fees_collected || 0).toFixed(4);
+    document.getElementById('peak').textContent = '$' + (d.peak || cap).toFixed(4);
+
+    const ret = ((cap - start) / start * 100);
+    const retEl = document.getElementById('returnPct');
+    retEl.textContent = (ret >= 0 ? '+' : '') + ret.toFixed(2) + '%';
+    retEl.className = 'stat-val ' + (ret >= 0 ? 'g' : 'r');
+
+    const log = d.log || [];
+    if (log.length) {
+      document.getElementById('tradeLog').innerHTML = log.slice(0,20).map(t => `
+        <div class="trade-row">
+          <span class="badge ${t.type === 'tri_arb' ? 'tri' : 'grid'}">${t.type === 'tri_arb' ? 'Tri-Arb' : 'Grid'}</span>
+          <span class="trade-path">${t.path || (t.side + ' @ $' + (t.price||'').toFixed ? '$'+(t.price||0).toFixed(2) : '')}</span>
+          <span class="trade-profit">+$${(t.profit_usdt||0).toFixed(5)}</span>
+        </div>`).join('');
+    }
+  } catch(e) {}
+}
+
+refresh();
+setInterval(refresh, 3000);
+</script>
+</body>
+</html>
